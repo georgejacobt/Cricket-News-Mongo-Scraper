@@ -125,7 +125,16 @@ $(document).on("click", "#scrape-now", function(){
     method: "GET",
     url: "/scrape" 
   })
+  // .then(function(){
+  //   window.location.reload();
+  //   console.log("page reloaded!")
+  // })
   
+})
+
+$(document).on("click", "#refresh-page", function() {
+  window.location.reload();
+  console.log("page reloaded")
 })
 
 
