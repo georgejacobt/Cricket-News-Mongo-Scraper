@@ -51,6 +51,20 @@ $(document).ready(function(){
   $.getJSON("/articles/saved", function(data) {
 
     for (var i = 0; i < data.length ; i++) {
+
+      if (data[i].title.length > 100){
+        console.log("high")
+        truncClass = "truncate"
+      } else truncClass = "none";
+      if (data[i].storyLink != undefined){
+        storyLink = data[i].storyLink;
+        readMore = "...ReadMore"
+      } else 
+        {storyLink = "#"
+        readMore = ""   };
+
+
+
       $("#saved-articles").append(`<div class="card">
     
   
@@ -59,13 +73,13 @@ $(document).ready(function(){
     </div>
     
      <div class="card-content">
-     <span class="card-title activator grey-text text-darken-4">${data[i].title}<i class="material-icons right">more_vert</i></span>
+     <span class="card-title activator grey-text text-darken-4 ${truncClass}">${data[i].title}<i class="material-icons right">more_vert</i></span>
      </div>
     
      <div class="card-reveal">
-     <span class="card-title grey-text text-darken-4">${data[i].title}<i class="material-icons right">close</i></span>
+     <span class="card-title grey-text text-darken-4 ${truncClass}">${data[i].title}<i class="material-icons right">close</i></span>
     <p>${data[i].description}</p>
-    <p><a href="${data[i].storyLink}" target="_blank">...Read More</p>
+    <p><a href=""${storyLink}" target="_blank">${readMore}</p>
     <a class="waves-effect waves-light btn " article-id="${data[i]._id}" id="delete-article"  >Unsave Article</a>
     </div>
     <a class="btn-floating halfway-fab waves-effect waves-light blue darken-1 modal-trigger "href="#modal${i}"><i class="material-icons" >note_add</i></a> 
