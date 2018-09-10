@@ -19,13 +19,26 @@
             <a href="index.html" class="brand-logo">Home</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-              <li><a href="#" id="scrape-now">Scrape Now</a></li>
+              <li><a href="#modalscrape" id="scrape-now" class="modal-trigger">Scrape Now</a></li>
+
+              <!-- Modal Structure -->
+              
               <!-- <li><a href="#" id="get-scraped">Get Scraped Articles</a></li> -->
               <!-- <li><a href="#" id="scrape-clear">Clear Articles</a></li> -->
               <li><a href="/pages/saved.html">Saved Articles</a></li>
               <li><a class="dropdown-trigger" href="#!" data-target="scraper-source">Sources<i class="material-icons right">arrow_drop_down</i></a></li>
               <!-- <li><a href="mobile.html">Mobile</a></li> -->
             </ul>
+
+            <div id="modalscrape" class="modal">
+                <div class="modal-content">
+                  <p style="color: teal;" class="center-align">You have scraped sucessfully! If there are new articles they will appear below. Duplicates will not be re-scraped!<br>
+                                                                  Click on any article to reveal the SAVE option </p>
+                </div>
+                <!-- <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">OK</a>
+                  </div> -->
+              </div>
           </div>
         </nav>
 
