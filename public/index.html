@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cricket News Scraper</title>
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css" />
+    <link rel="stylesheet" href="/styles/materialize.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+      <ul id="scraper-source" class="dropdown-content">
+          <li><a href="#!">ESPNCricinfo</a></li>
+          <li><a href="#!">Reddit Cricket</a></li>
+          <li><a href="#!">CricNews</a></li>
+        </ul>
+      <nav>
+          <div class="nav-wrapper blue darken-1">
+            <a href="index.html" class="brand-logo">Home</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="#" id="scrape-now">Scrape Now</a></li>
+              <li><a href="#" id="get-scraped">Get Scraped Articles</a></li>
+              <li><a href="#" id="scrape-clear">Clear Articles</a></li>
+              <li><a href="saved.html">Saved Articles</a></li>
+              <li><a class="dropdown-trigger" href="#!" data-target="scraper-source">Sources<i class="material-icons right">arrow_drop_down</i></a></li>
+              <!-- <li><a href="mobile.html">Mobile</a></li> -->
+            </ul>
+          </div>
+        </nav>
+
+        <img id="cricimage" class="responsive-img" src="images/cricketbg.jpg" alt="">
+      
+        <ul class="sidenav" id="mobile-demo">
+          <li><a href="#" id="scrape-now">Scrape Now</a></li>
+          <li><a href="#" id="get-scraped">Get Scraped Articles</a></li>
+          <li><a href="#" id="scrape-clear">Clear Articles</a></li>
+          <li><a href="collapsible.html">Saved Articles</a></li> -->
+          <li><a href="mobile.html">Mobile</a></li>
+        </ul>
+
+     
+
+
+
+
+    <div class="container">
+      <div id="articles"></div>
+      <!-- <div id="notes"></div> -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/Javascript/init.js"></script>
+    <script src="/Javascript/materialize.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script> -->
+    <script src="/Javascript/app.js"></script>
+    
+
+  </body>
+</html>
