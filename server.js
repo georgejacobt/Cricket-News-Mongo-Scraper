@@ -42,45 +42,40 @@ mongoose.connect(MONGODB_URI);
 // A GET route for scraping the echoJS website
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with request
+ var temp_count = 0;
+ let count;
   axios.get("http://www.espncricinfo.com/").then(function(response) {
+
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
-    // console.log(response.data);
-
-    // console.log($(getElementsByClassName("contentItem__title contentItem__title--story")));
-
-    // Now, we grab every h2 within an article tag, and do the following:
     $(".contentItem__content").each(function(i, element) {
       // Save an empty result object
       var result = {};
       var matchFound = false;
-
-      // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this).find($(".contentItem__title")).text();
       result.description = $(this).find($(".contentItem__subhead")).text();
       result.link = $(this).find($(".media-wrapper_image")).children("img").attr("data-default-src");
       result.storyLink = $(this).children("a").attr("href");
 
-      // $('#fruits').find($('.apple')).length
-
-        console.log(result);
-
-    
-      // Create a new Article using the `result` object built from scraping
-      db.Article.create(result)
+      db.Article.find({title: result.title},  function (err, docs) {
+        if (!docs.length){
+          db.Article.create(result)
         .then(function(dbArticle) {
-          // View the added result in the console
-          console.log(dbArticle);
+          console.log("no match found written to db");
         })
         .catch(function(err) {
-          // If an error occurred, send it to the client
           return res.json(err);
         });
-    });
+        } else {
+          console.log("match found not saved to db")
+        }
+      });
+    })
 
     // If we were able to successfully scrape and save an Article, send a message to the client
-    res.send("scraping success");
-  });
+
+  })
+res.send("scrape success");
 });
 
 // Route for getting all Articles from the db

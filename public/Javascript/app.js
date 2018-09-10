@@ -2,7 +2,8 @@
 
 $(function() {
 
-$(document).on("click", "#get-scraped", function() {
+// $(document).on("click", "#get-scraped", function() {
+  $(document).ready(function(){
   $.getJSON("/articles", function(data) {
   // For each one
   let truncClass = "ok";
@@ -104,7 +105,14 @@ $(document).on("click", "#scrape-clear", function() {
 });
 
 
+$(document).on("click", "#scrape-now", function(){
 
+  $.ajax({
+    method: "GET",
+    url: "/scrape" 
+  })
+  
+})
 
 
 
