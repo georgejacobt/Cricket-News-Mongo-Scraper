@@ -79,7 +79,7 @@ $(document).ready(function(){
      <div class="card-reveal">
      <span class="card-title grey-text text-darken-4 ${truncClass}">${data[i].title}<i class="material-icons right">close</i></span>
     <p>${data[i].description}</p>
-    <p><a href=""${storyLink}" target="_blank">${readMore}</p>
+    <p><a href="${storyLink}" target="_blank">${readMore}</p>
     <a class="waves-effect waves-light btn " article-id="${data[i]._id}" id="delete-article"  >Unsave Article</a>
     </div>
     <a class="btn-floating halfway-fab waves-effect waves-light blue darken-1 modal-trigger "href="#modal${i}"><i class="material-icons" >note_add</i></a> 
