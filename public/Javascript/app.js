@@ -16,8 +16,14 @@ $(function() {
       truncClass = "truncate"
     } else truncClass = "none";
     if (data[i].storyLink != undefined){
-      storyLink = data[i].storyLink;
-      readMore = "...ReadMore"
+      if (!data[i].storyLink.includes("www")){
+        storyLink = "http://www.cricinfo.com"+data[i].storyLink
+        console.log(storyLink);
+        readMore = "...ReadMore"
+      } else {
+           storyLink = data[i].storyLink;
+           readMore = "...ReadMore"
+      }
     } else 
       {storyLink = "#"
       readMore = ""   };
